@@ -26,7 +26,7 @@ const certificate = fs.readFileSync(
 );
 const app = express();
 const httpsServer = https.createServer({ key: privateKey, cert: certificate }, app);
-const expressWs = require('express-ws')(app);
+const expressWs = require('express-ws')(app, httpsServer);
 const port = 3000;
 
 const AUTH_DATA = Object.freeze({
