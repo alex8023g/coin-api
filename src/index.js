@@ -353,5 +353,5 @@ const currencyRateFeedGenerator = setInterval(() => {
     });
     writeData(data);
   }
-}, 1000);
+}, 86000);
 currencyRateFeedGenerator.unref();
