@@ -3,6 +3,7 @@ const https = require('https');
 const fs = require('fs');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const expressWs = require('express-ws');
 
 const {
   readData,
@@ -26,7 +27,7 @@ const certificate = fs.readFileSync(
 );
 const app = express();
 const httpsServer = https.createServer({ key: privateKey, cert: certificate }, app);
-const expressWs = require('express-ws')(app, httpsServer);
+expressWs(app, httpsServer);
 const port = 3000;
 
 const AUTH_DATA = Object.freeze({
