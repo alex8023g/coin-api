@@ -340,7 +340,10 @@ const currencyRateFeedGenerator = setInterval(() => {
       })
     )
   );
+}, 86000000);
+currencyRateFeedGenerator.unref();
 
+const transactionGenerator = setInterval(() => {
   // pick random user account and generate random transaction for it
   if (Math.random() > 0.9) {
     const account = data.accounts[MINE_ACCOUNT];
@@ -354,5 +357,5 @@ const currencyRateFeedGenerator = setInterval(() => {
     });
     writeData(data);
   }
-}, 86000);
-currencyRateFeedGenerator.unref();
+}, 2000);
+transactionGenerator.unref();
