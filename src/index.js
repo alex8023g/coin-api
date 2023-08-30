@@ -345,17 +345,17 @@ currencyRateFeedGenerator.unref();
 
 const transactionGenerator = setInterval(() => {
   // pick random user account and generate random transaction for it
-  if (Math.random() > 0.9) {
-    const account = data.accounts[MINE_ACCOUNT];
-    const amount = formatAmount(Math.random() * 1000);
-    account.balance = formatAmount(account.balance + amount);
-    account.transactions.push({
-      amount,
-      date: new Date().toISOString(),
-      from: generateAccountId(),
-      to: MINE_ACCOUNT,
-    });
-    writeData(data);
-  }
+  // if (Math.random() > 0.9) {
+  const account = data.accounts[MINE_ACCOUNT];
+  const amount = formatAmount(Math.random() * 1000);
+  account.balance = formatAmount(account.balance + amount);
+  account.transactions.push({
+    amount,
+    date: new Date().toISOString(),
+    from: generateAccountId(),
+    to: MINE_ACCOUNT,
+  });
+  writeData(data);
+  // }
 }, 86000000);
 transactionGenerator.unref();
